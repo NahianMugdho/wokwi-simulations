@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "author": "mugdho UX",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 0, "left": -91.16, "attrs": {} },
+    { "type": "wokwi-hc-sr04", "id": "ultrasonic1", "top": -56.1, "left": 34.3, "attrs": {} }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "esp:5V", "ultrasonic1:VCC", "red", [ "h0.15", "v28.8", "h172.8" ] ],
+    [ "esp:GND.2", "ultrasonic1:GND", "black", [ "v-96", "h220.8", "v115.2" ] ],
+    [ "ultrasonic1:TRIG", "esp:5", "green", [ "v0" ] ],
+    [ "ultrasonic1:ECHO", "esp:18", "green", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}

@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "author": "mugdho UX",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": -76.8, "left": -100.76, "attrs": {} },
+    { "type": "wokwi-dht22", "id": "dht1", "top": -76.5, "left": 61.8, "attrs": {} },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 90.35,
+      "left": 28.8,
+      "attrs": { "value": "1000" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "dht1:S", "esp:15", "green", [ "v0" ] ],
+    [ "esp:3V3", "dht1:VCC", "red", [ "h-19.05", "v172.8", "h192" ] ],
+    [ "esp:GND.2", "dht1:GND", "black", [ "v-28.8", "h124.8", "v124.8" ] ],
+    [ "r1:2", "dht1:SDA", "green", [ "v0" ] ],
+    [ "r1:1", "esp:3V3", "red", [ "v28.8", "h-153.6", "v-172.8" ] ],
+    [ "esp:16", "dht1:SDA", "green", [ "h0" ] ]
+  ],
+  "dependencies": {}
+}
